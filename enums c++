@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+enum days{
+    mon,tue,wed,thrus,friday,saturday,sunday
+};
+int main(){
+    days d1=mon;
+    if(d1==mon){
+        cout<<"working day";
+    }
+    else{
+        cout<<"not a working day";
+    }
+}

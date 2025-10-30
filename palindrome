@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main(){
+    string s="kanak";
+     string r="";
+     for(int i=s.size()-1;i>=0;i--){
+         r=r+s[i];
+     }
+     if(s==r){
+         cout<<"palindrome";
+     }
+     else{
+         cout<<"not palindrome";
+     }
+}

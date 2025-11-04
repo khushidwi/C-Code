@@ -45,3 +45,19 @@ int main(){
         cout<<"no"<<endl;
     }
 }
+//detecting in which position loop is present 
+    Node*slow1=head;
+    Node*fast1=head;
+    while(fast1->next!=NULL&&fast1->next->next!=NULL){
+        slow1=slow1->next;
+        fast1=fast1->next->next;
+        if(slow1==fast1){
+            slow1=head;
+            while(slow1!=fast1){
+                fast1=fast1->next;
+                slow1=slow1->next;
+            }
+            cout<<slow1->data;
+            break;
+        }
+    }

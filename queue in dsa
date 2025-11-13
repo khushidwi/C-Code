@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+class Queue {
+    public:
+    int front;
+    int rear;
+    int size;
+    int arr[100];
+    Queue() {
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+    bool isEmpty()  {
+        return (size == 0);
+    }
+    bool isFull()  {
+        return (size == 100);
+    }
+
+    void enqueue(int x) {
+        if (isFull()) {
+            cout << "Queue overflow\n";
+            return;
+        }
+        rear = (rear + 1) % 100;
+        arr[rear] = x;
+        size++;
+    }
+
+    void dequeue() {
+        if (isEmpty()) {
+            cout<<"Queue underflow";
+        }
+        front = (front + 1) % 100;
+        size--;
+    }
+    int getfront(){
+        if(isEmpty()){
+            cout<<"Queue is empty";
+            return -1;
+        }
+        return arr[front];
+    }
+     int getrear(){
+        if(isEmpty()){
+            cout<<"queue is empty";
+            return -1;
+        }
+        return arr[rear];
+    }
+
+    // Traversal function added below
+    void traverse(){
+        if (isEmpty()) {
+            cout << "Queue is empty\n";
+            return;
+        }
+        cout << "Queue elements: ";
+        int count = size;
+        int temp = front;
+        while (count>0) {
+            cout << arr[temp] << " ";
+            temp = (temp + 1) % 100;
+            count--;
+        }
+        cout << "\n";
+    }
+};
+int main(){
+        Queue q;
+        q.enqueue(89);
+        q.enqueue(90);
+        q.enqueue(34);
+        q.enqueue(12);
+        q.enqueue(23);
+        q.traverse();
+       cout<<"front element::"<<q.getfront();
+        cout<<"last element::"<<q.getrear();
+}

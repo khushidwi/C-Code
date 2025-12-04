@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+void towerofHanoi(int n,char from,char to,char helper){
+    if(n==0){
+        return;
+    }
+    towerofHanoi(n-1,from,helper,to);
+    cout<<"Moved "<<n<<"th disk from "<<from<<"to"<<to<<endl;
+    towerofHanoi(n-1,helper,to,from);
+    
+}
+int main(){
+    int n=3;
+    towerofHanoi(n,'A','B','C');
+}
